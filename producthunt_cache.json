@@ -1,152 +1,152 @@
 [
   {
-    "name": "Tadak",
-    "url": "https://www.producthunt.com/products/tadak",
-    "description": "\u4f60\u7684\u4e2a\u4eba\u767d\u566a\u97f3\u64ad\u653e\u5668\uff0c\u5e2e\u4f60\u4e13\u6ce8\u5de5\u4f5c\u6216\u5165\u7761"
-  },
-  {
-    "name": "Ask Fellow",
-    "url": "https://www.producthunt.com/products/fellow-app",
-    "description": "\u81ea\u52a8\u5904\u7406\u4f1a\u8bae\u540e\u7684\u6587\u6863\u548c\u90ae\u4ef6\uff0c\u544a\u522b\u624b\u52a8\u8ddf\u8fdb"
-  },
-  {
-    "name": "floors.js",
-    "url": "https://www.producthunt.com/products/floors-js",
-    "description": "\u4e00\u884c\u4ee3\u7801\u628a\u4f60\u7684\u7f51\u7ad9\u53d8\u6210 Habbo Hotel \u98ce\u683c"
-  },
-  {
-    "name": "Ask",
-    "url": "https://www.producthunt.com/products/ask-7",
-    "description": "AI \u7f16\u7801\u4ee3\u7406\u7684\u8bb0\u5fc6\u57fa\u7840\u8bbe\u65bd\uff0c\u8ba9 Agent \u8bb0\u4f4f\u4e0a\u4e0b\u6587"
-  },
-  {
-    "name": "PeonPing",
-    "url": "https://www.producthunt.com/products/peonping",
-    "description": "\u518d\u4e5f\u4e0d\u7528\u76ef\u7740\u7ec8\u7aef\u4e86\uff0c\u81ea\u52a8\u5316\u6267\u884c\u540e\u53f0\u4efb\u52a1"
-  },
-  {
-    "name": "The Commuter",
-    "url": "https://www.producthunt.com/products/the-commuter",
-    "description": "\u50cf\u5237\u63a8\u7279\u4e00\u6837\u770b\u65b0\u95fb\uff0cAI \u7cbe\u9009\u6bcf\u65e5\u8981\u95fb"
-  },
-  {
     "name": "KiloClaw",
     "url": "https://www.producthunt.com/products/kiloclaw",
-    "description": "\u6258\u7ba1\u7248 OpenClaw\uff0c\u4e0d\u9700\u8981 Mac mini \u4e5f\u80fd\u8fd0\u884c"
-  },
-  {
-    "name": "VibePad",
-    "url": "https://www.producthunt.com/products/vibepad",
-    "description": "\u7528\u6e38\u620f\u624b\u67c4\u63a7\u5236 AI \u7f16\u7801\u52a9\u624b\uff0c\u8eba\u5728\u6c99\u53d1\u4e0a\u7f16\u7a0b"
-  },
-  {
-    "name": "General Legal",
-    "url": "https://www.producthunt.com/products/general-legal",
-    "description": "\u5728\u4f60\u7684 Slack \u91cc\u5feb\u901f\u54a8\u8be2\u6cd5\u5f8b\u95ee\u9898"
-  },
-  {
-    "name": "Thinglo",
-    "url": "https://www.producthunt.com/products/thinglo-save-anything-lose-nothing",
-    "description": "\u4ece\u4efb\u4f55 App \u6536\u85cf\u5185\u5bb9\uff0cAI \u81ea\u52a8\u6574\u7406\u5f52\u7c7b"
-  },
-  {
-    "name": "GhostReply",
-    "url": "https://www.producthunt.com/products/ghostreply-2",
-    "description": "AI \u81ea\u52a8\u56de\u590d iMessage \u6d88\u606f\uff0c\u4e0d\u518d\u9519\u8fc7\u4efb\u4f55\u4fe1\u606f"
-  },
-  {
-    "name": "Thinklet AI",
-    "url": "https://www.producthunt.com/products/thinklet-ai-voice-notes-with-local-ai",
-    "description": "\u7528\u8bed\u97f3\u8bb0\u7b14\u8bb0\uff0c\u8fd8\u80fd\u548c\u7b14\u8bb0\u5bf9\u8bdd"
-  },
-  {
-    "name": "Mercury 2",
-    "url": "https://www.producthunt.com/products/mercury-412",
-    "description": "\u6700\u5feb\u63a8\u7406\u6a21\u578b\uff0c\u4e13\u4e3a\u5373\u65f6\u751f\u4ea7\u7ea7 AI \u8bbe\u8ba1"
-  },
-  {
-    "name": "Wispr Flow",
-    "url": "https://www.producthunt.com/products/wisprflow",
-    "description": "Mac \u8bed\u97f3\u8f93\u5165\uff0c4\u500d\u901f\u6253\u5b57\uff0c\u652f\u6301 100+ \u8bed\u8a00"
-  },
-  {
-    "name": "Opal 2.0",
-    "url": "https://www.producthunt.com/products/google",
-    "description": "Google Labs \u51fa\u54c1\uff0c\u667a\u80fd Agent + \u8bb0\u5fc6 + \u8def\u7531"
-  },
-  {
-    "name": "Synlets",
-    "url": "https://www.producthunt.com/products/synlets",
-    "description": "\u628a\u7968\u636e\u5206\u914d\u7ed9 AI \u5904\u7406\uff0c\u5feb\u901f\u51cf\u5c11\u79ef\u538b"
-  },
-  {
-    "name": "SF Trip Planner",
-    "url": "https://www.producthunt.com/products/sf-trip-planner",
-    "description": "\u65e7\u91d1\u5c71\u65c5\u884c\u89c4\u5212\uff0c\u5730\u56fe\u6574\u5408\u666f\u70b9\u3001\u6d3b\u52a8\u3001\u72af\u7f6a\u7387"
-  },
-  {
-    "name": "Yuma Social AI",
-    "url": "https://www.producthunt.com/products/yuma-social-ai",
-    "description": "\u7535\u5546\u793e\u4ea4\u5a92\u4f53\u81ea\u52a8\u5316\uff0cAI \u5e2e\u4f60\u8fd0\u8425"
-  },
-  {
-    "name": "Pinly",
-    "url": "https://www.producthunt.com/products/pinly-smart-location-reminders",
-    "description": "\u57fa\u4e8e\u4f4d\u7f6e\u7684\u667a\u80fd\u63d0\u9192\uff0c\u5230\u70b9\u81ea\u52a8\u89e6\u53d1"
-  },
-  {
-    "name": "Webflow AI",
-    "url": "https://www.producthunt.com/products/webflow",
-    "description": "AI \u7f51\u7ad9\u6784\u5efa\u5668\uff0c\u5feb\u901f\u542f\u52a8\uff0c\u6b63\u786e\u6784\u5efa"
+    "description": "\u6258\u7ba1\u7248 OpenClaw\uff0c\u4e0d\u9700\u8981 Mac mini \u4e5f\u80fd\u8fd0\u884c\uff0c305 upvotes"
   },
   {
     "name": "Notion Custom Agents",
     "url": "https://www.producthunt.com/products/notion",
-    "description": "\u5728 Notion \u91cc\u521b\u5efa\u81ea\u5b9a\u4e49 AI \u4ee3\u7406\u5e2e\u4f60\u505a\u4e8b"
+    "description": "\u5728 Notion \u91cc\u521b\u5efa\u81ea\u5b9a\u4e49 AI \u4ee3\u7406\u5e2e\u4f60\u505a\u4e8b\uff0c177 upvotes"
   },
   {
-    "name": "DemoMe",
-    "url": "https://www.producthunt.com/products/demome",
-    "description": "\u5c4f\u5e55\u5f55\u5236\u79d2\u53d8\u4e13\u4e1a\u6f14\u793a\u89c6\u9891"
-  },
-  {
-    "name": "Scenescroll",
-    "url": "https://www.producthunt.com/products/scenescroll",
-    "description": "AI \u751f\u6210\u771f\u5b9e\u7684 UGC \u89c6\u9891\u5e7f\u544a\uff0c\u5feb\u901f\u6d4b\u8bd5\u89c4\u6a21\u5316"
-  },
-  {
-    "name": "RamAIn",
-    "url": "https://www.producthunt.com/products/ramain",
-    "description": "\u7528 Claude \u8bfb\u5199 WhatsApp \u6d88\u606f"
+    "name": "Opal 2.0 by Google Labs",
+    "url": "https://www.producthunt.com/products/google",
+    "description": "Google Labs \u51fa\u54c1\uff0c\u667a\u80fd Agent + \u8bb0\u5fc6 + \u8def\u7531\uff0c165 upvotes"
   },
   {
     "name": "Arzule",
     "url": "https://www.producthunt.com/products/arzule",
-    "description": "\u7528 AI \u628a\u5408\u4f5c\u5173\u7cfb\u53d8\u6210\u53ef\u9884\u6d4b\u7684\u6536\u5165"
+    "description": "\u7528 AI \u628a\u5408\u4f5c\u5173\u7cfb\u53d8\u6210\u53ef\u9884\u6d4b\u7684\u6536\u5165\uff0c134 upvotes"
   },
   {
-    "name": "Blanc Note",
-    "url": "https://www.producthunt.com/products/blanc-note",
-    "description": "\u5b89\u9759\u7684\u601d\u60f3\u6536\u7eb3\u76d2\uff0c\u8ba9\u4f60\u7684\u60f3\u6cd5\u6709\u4e2a\u5b89\u653e\u4e4b\u5904"
+    "name": "Ask Fellow",
+    "url": "https://www.producthunt.com/products/fellow-app",
+    "description": "\u81ea\u52a8\u5904\u7406\u4f1a\u8bae\u540e\u7684\u6587\u6863\u548c\u90ae\u4ef6\uff0c120 upvotes"
   },
   {
-    "name": "Mito Health",
-    "url": "https://www.producthunt.com/products/mito-health",
-    "description": "60 \u79d2\u8bbe\u8ba1\u4f60\u81ea\u5df1\u7684\u8840\u6db2\u68c0\u6d4b\u9762\u677f"
+    "name": "floors.js",
+    "url": "https://www.producthunt.com/products/floors-js",
+    "description": "\u4e00\u884c\u4ee3\u7801\u628a\u4f60\u7684\u7f51\u7ad9\u53d8\u6210 Habbo Hotel \u98ce\u683c\uff0c114 upvotes"
+  },
+  {
+    "name": "DemoMe",
+    "url": "https://www.producthunt.com/products/demome",
+    "description": "\u5c4f\u5e55\u5f55\u5236\u79d2\u53d8\u4e13\u4e1a\u6f14\u793a\u89c6\u9891\uff0c112 upvotes"
+  },
+  {
+    "name": "Mercury 2",
+    "url": "https://www.producthunt.com/products/mercury-412",
+    "description": "\u6700\u5feb\u63a8\u7406\u6a21\u578b\uff0c\u4e13\u4e3a\u5373\u65f6\u751f\u4ea7\u7ea7 AI \u8bbe\u8ba1\uff0c107 upvotes"
+  },
+  {
+    "name": "VibePad",
+    "url": "https://www.producthunt.com/products/vibepad",
+    "description": "\u7528\u6e38\u620f\u624b\u67c4\u63a7\u5236 AI \u7f16\u7801\u52a9\u624b\uff0c98 upvotes"
+  },
+  {
+    "name": "Universal-3 Pro",
+    "url": "https://www.producthunt.com/products/assemblyai",
+    "description": "\u8bed\u97f3\u8f6c\u6587\u5b57\u7ec8\u4e8e\u7406\u89e3\u4e0a\u4e0b\u6587\u4e86\uff0c205 upvotes"
+  },
+  {
+    "name": "SF Trip Planner",
+    "url": "https://www.producthunt.com/products/sf-trip-planner",
+    "description": "\u65e7\u91d1\u5c71\u65c5\u884c\u89c4\u5212\uff0c\u5730\u56fe\u6574\u5408\u666f\u70b9\u3001\u6d3b\u52a8\u3001\u72af\u7f6a\u7387\uff0c93 upvotes"
+  },
+  {
+    "name": "Yuma Social AI",
+    "url": "https://www.producthunt.com/products/yuma-social-ai",
+    "description": "\u7535\u5546\u793e\u4ea4\u5a92\u4f53\u81ea\u52a8\u5316\uff0cAI \u5e2e\u4f60\u8fd0\u8425\uff0c92 upvotes"
   },
   {
     "name": "Orca",
     "url": "https://www.producthunt.com/products/orca-3",
-    "description": "\u5728\u6d4f\u89c8\u5668\u91cc\u73a9\u3001mod\u3001\u6258\u7ba1 Minecraft"
+    "description": "\u5728\u6d4f\u89c8\u5668\u91cc\u73a9\u3001mod\u3001\u6258\u7ba1 Minecraft\uff0c91 upvotes"
+  },
+  {
+    "name": "PeonPing",
+    "url": "https://www.producthunt.com/products/peonping",
+    "description": "\u518d\u4e5f\u4e0d\u7528\u76ef\u7740\u7ec8\u7aef\u4e86\uff0c\u81ea\u52a8\u5316\u6267\u884c\u540e\u53f0\u4efb\u52a1\uff0c87 upvotes"
+  },
+  {
+    "name": "Mito Health",
+    "url": "https://www.producthunt.com/products/mito-health",
+    "description": "60 \u79d2\u8bbe\u8ba1\u4f60\u81ea\u5df1\u7684\u8840\u6db2\u68c0\u6d4b\u9762\u677f\uff0c87 upvotes"
+  },
+  {
+    "name": "Wispr Flow",
+    "url": "https://www.producthunt.com/products/wisprflow",
+    "description": "Mac \u8bed\u97f3\u8f93\u5165\uff0c4\u500d\u901f\u6253\u5b57\uff0c1747 upvotes"
+  },
+  {
+    "name": "Custom Models",
+    "url": "https://www.producthunt.com/products/travel-animator",
+    "description": "\u4e2a\u6027\u5316 3D \u6a21\u578b\u5236\u4f5c\u65c5\u884c\u52a8\u753b\u6545\u4e8b\uff0c85 upvotes"
+  },
+  {
+    "name": "The Commuter",
+    "url": "https://www.producthunt.com/products/the-commuter",
+    "description": "\u50cf\u5237\u63a8\u7279\u4e00\u6837\u770b\u65b0\u95fb\uff0cAI \u7cbe\u9009\u6bcf\u65e5\u8981\u95fb\uff0c84 upvotes"
+  },
+  {
+    "name": "Synlets",
+    "url": "https://www.producthunt.com/products/synlets",
+    "description": "\u628a\u7968\u636e\u5206\u914d\u7ed9 AI \u5904\u7406\uff0c\u5feb\u901f\u51cf\u5c11\u79ef\u538b\uff0c81 upvotes"
+  },
+  {
+    "name": "Pinly",
+    "url": "https://www.producthunt.com/products/pinly-smart-location-reminders",
+    "description": "\u57fa\u4e8e\u4f4d\u7f6e\u7684\u667a\u80fd\u63d0\u9192\uff0c\u5230\u70b9\u81ea\u52a8\u89e6\u53d1\uff0c80 upvotes"
+  },
+  {
+    "name": "Thinglo",
+    "url": "https://www.producthunt.com/products/thinglo-save-anything-lose-nothing",
+    "description": "\u4ece\u4efb\u4f55 App \u6536\u85cf\u5185\u5bb9\uff0cAI \u81ea\u52a8\u6574\u7406\u5f52\u7c7b\uff0c79 upvotes"
+  },
+  {
+    "name": "Thinklet AI",
+    "url": "https://www.producthunt.com/products/thinklet-ai-voice-notes-with-local-ai",
+    "description": "\u7528\u8bed\u97f3\u8bb0\u7b14\u8bb0\uff0c\u8fd8\u80fd\u548c\u7b14\u8bb0\u5bf9\u8bdd\uff0c78 upvotes"
+  },
+  {
+    "name": "Tadak",
+    "url": "https://www.producthunt.com/products/tadak",
+    "description": "\u4f60\u7684\u4e2a\u4eba\u767d\u566a\u97f3\u64ad\u653e\u5668\uff0c\u5e2e\u4f60\u4e13\u6ce8\u5de5\u4f5c\u6216\u5165\u7761\uff0c77 upvotes"
+  },
+  {
+    "name": "GhostReply",
+    "url": "https://www.producthunt.com/products/ghostreply-2",
+    "description": "AI \u81ea\u52a8\u56de\u590d iMessage \u6d88\u606f\uff0c76 upvotes"
+  },
+  {
+    "name": "Blanc Note",
+    "url": "https://www.producthunt.com/products/blanc-note",
+    "description": "\u5b89\u9759\u7684\u601d\u60f3\u6536\u7eb3\u76d2\uff0c76 upvotes"
+  },
+  {
+    "name": "Scenescroll",
+    "url": "https://www.producthunt.com/products/scenescroll",
+    "description": "AI \u751f\u6210\u771f\u5b9e\u7684 UGC \u89c6\u9891\u5e7f\u544a\uff0c75 upvotes"
+  },
+  {
+    "name": "Ask",
+    "url": "https://www.producthunt.com/products/ask-7",
+    "description": "AI \u7f16\u7801\u4ee3\u7406\u7684\u8bb0\u5fc6\u57fa\u7840\u8bbe\u65bd\uff0c75 upvotes"
+  },
+  {
+    "name": "RamAIn",
+    "url": "https://www.producthunt.com/products/ramain",
+    "description": "\u7528 Claude \u8bfb\u5199 WhatsApp \u6d88\u606f\uff0c74 upvotes"
   },
   {
     "name": "Draftwise Playbook",
     "url": "https://www.producthunt.com/products/draftwise-playbook-studio",
-    "description": "\u5206\u6790\u4f60\u7684\u6a21\u5f0f\uff0c\u6355\u83b7\u4f18\u52bf\uff0c\u89c4\u6a21\u5316 playbook"
+    "description": "\u5206\u6790\u4f60\u7684\u6a21\u5f0f\uff0c\u6355\u83b7\u4f18\u52bf\uff0c\u89c4\u6a21\u5316 playbook\uff0c74 upvotes"
   },
   {
-    "name": "DemoOne",
-    "url": "https://www.producthunt.com/products/demome",
-    "description": "\u4e00\u952e\u751f\u6210\u4ea7\u54c1\u6f14\u793a\u89c6\u9891\uff0c\u8282\u7701\u5927\u91cf\u65f6\u95f4"
+    "name": "General Legal",
+    "url": "https://www.producthunt.com/products/general-legal",
+    "description": "\u5728\u4f60\u7684 Slack \u91cc\u5feb\u901f\u54a8\u8be2\u6cd5\u5f8b\u95ee\u9898\uff0c73 upvotes"
   }
 ]
