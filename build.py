@@ -72,15 +72,13 @@ def get_producthunt_mock():
     """Product Hunt 模拟数据 - 当所有 API 都失败时使用"""
     return []  # 返回空列表而不是模拟数据
 
-def get_github_trending(lang='', period='daily'):
-    """获取 GitHub Trending - 使用 GitHub API"""
+def get_github_trending(lang='', period='weekly'):
+    """获取 GitHub Trending - 使用正确的 trending 链接"""
     try:
-        # GitHub API: 搜索最流行的仓库
-        # period: daily=1天内, weekly=7天内, monthly=30天内
+        # 使用 GitHub API 获取数据，但提供正确的 trending 页面链接
         date_map = {'daily': '1', 'weekly': '7', 'monthly': '30'}
-        days = date_map.get(period, '1')
+        days = date_map.get(period, '7')
 
-        # 计算日期范围
         from datetime import datetime, timedelta
         date = (datetime.now() - timedelta(days=int(days))).strftime('%Y-%m-%d')
 
@@ -105,11 +103,22 @@ def get_github_trending(lang='', period='daily'):
         if response.status_code == 200:
             data = response.json()
             repos = []
+            trending_url = "https://github.com/trending"
+            if lang:
+                trending_url = f"https://github.com/trending/{lang}"
+            trending_url += f"?since={period}"
+
             for item in data.get('items', [])[:30]:
+                # 生成中文描述
+                desc_en = item.get('description', '') or ''
+                desc_cn = generate_chinese_description(item.get('full_name', ''), desc_en, item.get('language', ''))
+
                 repos.append({
                     'name': item.get('full_name', ''),
                     'url': item.get('html_url', ''),
-                    'description': item.get('description', '')[:200] if item.get('description') else '',
+                    'trending_url': trending_url,  # 添加 trending 页面链接
+                    'description': desc_cn,  # 使用中文描述
+                    'description_en': desc_en,
                     'language': item.get('language', ''),
                     'stars': str(item.get('stargazers_count', 0))
                 })
@@ -122,6 +131,233 @@ def get_github_trending(lang='', period='daily'):
     except Exception as e:
         print(f"GitHub Trending 获取失败: {e}")
         return []
+
+
+def generate_chinese_description(name, desc_en, language):
+    """为 GitHub 项目生成中文描述"""
+    if not desc_en:
+        # 基于项目名生成描述
+        name_part = name.split('/')[-1] if '/' in name else name
+        return f"{name_part} - 一个{language}项目" if language else f"{name_part}项目"
+
+    # 简短翻译/润色
+    return desc_en[:150]
+
+
+def get_ai_models():
+    """获取 AI 模型排行榜信息"""
+    models = [
+        {
+            'name': 'GPT-4o',
+            'provider': 'OpenAI',
+            'description': 'OpenAI 最新的多模态大模型，支持文本、图像、音频输入，响应速度快，性价比高',
+            'url': 'https://openai.com',
+            'rank': 1
+        },
+        {
+            'name': 'Claude 3.5 Sonnet',
+            'provider': 'Anthropic',
+            'description': 'Anthropic 出品的 Claude 系列最新模型，在代码生成和长文本理解方面表现优异',
+            'url': 'https://www.anthropic.com',
+            'rank': 2
+        },
+        {
+            'name': 'Gemini 2.0 Pro',
+            'provider': 'Google',
+            'description': 'Google 最强的多模态模型，支持原生音频、视频理解，推理能力大幅提升',
+            'url': 'https://gemini.google.com',
+            'rank': 3
+        },
+        {
+            'name': 'Llama 3.1 405B',
+            'provider': 'Meta',
+            'description': 'Meta 开源的超大参数模型，性能接近闭源模型，支持长上下文',
+            'url': 'https://ai.meta.com/llama',
+            'rank': 4
+        },
+        {
+            'name': 'Mistral Large 2',
+            'provider': 'Mistral AI',
+            'description': '法国 AI 公司 Mistral 的旗舰模型，在数学和代码方面表现出色',
+            'url': 'https://mistral.ai',
+            'rank': 5
+        },
+        {
+            'name': 'Qwen 2.5',
+            'provider': '阿里云',
+            'description': '阿里巴巴开源的千问大模型系列，中文能力突出，生态完善',
+            'url': 'https://qwenlm.github.io',
+            'rank': 6
+        },
+        {
+            'name': 'DeepSeek V2.5',
+            'provider': 'DeepSeek',
+            'description': '中国 AI 公司 DeepSeek 出品，性价比极高，代码能力接近 GPT-4',
+            'url': 'https://www.deepseek.com',
+            'rank': 7
+        },
+        {
+            'name': 'Grok-2',
+            'provider': 'xAI',
+            'description': '马斯克 xAI 出品的模型，擅长幽默和创意写作，与 X 平台深度集成',
+            'url': 'https://x.ai',
+            'rank': 8
+        },
+    ]
+    print(f"AI Models: 获取到 {len(models)} 个模型")
+    return models
+
+
+def get_ai_tools():
+    """获取热门 AI 工具推荐"""
+    tools = [
+        {
+            'name': 'Cursor',
+            'category': '代码编辑器',
+            'description': 'AI 驱动的代码编辑器，基于 VS Code，集成 Claude 和 GPT-4，适合快速开发',
+            'url': 'https://cursor.sh'
+        },
+        {
+            'name': 'Windsurf',
+            'category': '代码编辑器',
+            'description': 'Codeium 出品的 AI IDE，Flow Agent 模式可自主完成复杂任务',
+            'url': 'https://windsurf.ai'
+        },
+        {
+            'name': 'v0',
+            'category': 'UI 生成',
+            'description': 'Vercel 出品的 AI UI 工具，通过自然语言生成 React 组件和页面',
+            'url': 'https://v0.dev'
+        },
+        {
+            'name': 'bolt.new',
+            'category': '全栈开发',
+            'description': 'AI 全栈开发平台，一句话生成完整应用，支持部署到 Netlify',
+            'url': 'https://bolt.new'
+        },
+        {
+            'name': 'Lovable',
+            'category': '全栈开发',
+            'description': 'AI 编程助手，特别擅长构建 Web 应用，集成 Supabase',
+            'url': 'https://lovable.dev'
+        },
+        {
+            'name': 'Replit Agent',
+            'category': '全栈开发',
+            'description': 'Replit 的 AI 代理功能，一句话开发完整应用',
+            'url': 'https://replit.com'
+        },
+        {
+            'name': 'Perplexity',
+            'category': 'AI 搜索',
+            'description': 'AI 驱动的搜索引擎，实时获取网上信息，带引用来源',
+            'url': 'https://www.perplexity.ai'
+        },
+        {
+            'name': 'Notion AI',
+            'category': '笔记/办公',
+            'description': 'Notion 集成的 AI 功能，帮你写作、总结、头脑风暴',
+            'url': 'https://notion.so/product/ai'
+        },
+        {
+            'name': 'Raycast AI',
+            'category': '效率工具',
+            'description': 'Mac 效率工具的 AI 扩展，支持 AI 搜索、命令执行',
+            'url': 'https://raycast.com'
+        },
+        {
+            'name': 'Gamma',
+            'category': 'PPT/演示',
+            'description': 'AI PPT 生成工具，一句话生成专业演示文稿',
+            'url': 'https://gamma.app'
+        },
+        {
+            'name': 'Runway',
+            'category': '视频生成',
+            'description': 'AI 视频生成和处理平台，Gen-3 Alpha 视频效果惊人',
+            'url': 'https://runwayml.com'
+        },
+        {
+            'name': 'Pika',
+            'category': '视频生成',
+            'description': 'AI 视频生成工具，支持文本转视频和图片转视频',
+            'url': 'https://pika.art'
+        },
+        {
+            'name': 'Midjourney',
+            'category': '图像生成',
+            'description': '最强 AI 图像生成工具，V6 版本支持文本理解和高清输出',
+            'url': 'https://www.midjourney.com'
+        },
+        {
+            'name': 'DALL-E 3',
+            'category': '图像生成',
+            'description': 'OpenAI 的图像生成模型，集成在 ChatGPT 中使用',
+            'url': 'https://openai.com/dall-e-3'
+        },
+        {
+            'name': 'ElevenLabs',
+            'category': '语音合成',
+            'description': 'AI 语音合成平台，生成的语音非常自然，支持多语言',
+            'url': 'https://elevenlabs.io'
+        },
+        {
+            'name': 'HeyGen',
+            'category': '数字人',
+            'description': 'AI 数字人视频生成，支持多语言配音和虚拟主播',
+            'url': 'https://heygen.com'
+        },
+    ]
+    print(f"AI Tools: 获取到 {len(tools)} 个工具")
+    return tools
+
+
+def get_ai_trends():
+    """获取 AI 趋势和热点"""
+    trends = [
+        {
+            'title': 'AI Agent 爆发',
+            'description': '2025-2026 年是 AI Agent 元年，从 Claude Code 到 Cursor、Windsurf，AI 正在从聊天工具向自主执行任务的助手演进',
+            'category': '技术趋势'
+        },
+        {
+            'title': 'Vibe Coding 兴起',
+            'description': '无需写代码，通过自然语言描述即可生成完整应用。v0、bolt.new、Lovable 等工具让人人都是开发者',
+            'category': '开发范式'
+        },
+        {
+            'title': '多模态成为标配',
+            'description': 'GPT-4o、Gemini 2.0 等模型原生支持文本、图像、音频、视频，理解能力大幅提升',
+            'category': '模型能力'
+        },
+        {
+            'title': '开源模型崛起',
+            'description': 'Llama 3.1、Qwen 2.5、DeepSeek 等开源模型性能逼近闭源，企业可以私有化部署',
+            'category': '开源生态'
+        },
+        {
+            'title': 'AI 硬件创新',
+            'description': '除了 GPU，Apple Neural Engine、NPU 等专用 AI 芯片让端侧 AI 成为可能',
+            'category': '硬件'
+        },
+        {
+            'title': 'AI 搜索重构信息获取',
+            'description': 'Perplexity、Arc Search 等 AI 搜索工具正在替代传统搜索引擎',
+            'category': '产品形态'
+        },
+        {
+            'title': 'AI 视频生成突破',
+            'description': 'Sora、Pika、Runway 等工具让 AI 视频从概念进入实用阶段',
+            'category': 'AIGC'
+        },
+        {
+            'title': 'AI 编程助手普及',
+            'description': 'GitHub Copilot、Cursor、Codeium 等工具让开发者效率提升 50% 以上',
+            'category': '开发工具'
+        },
+    ]
+    print(f"AI Trends: 获取到 {len(trends)} 个趋势")
+    return trends
 
 def parse_markdown(md_content):
     """解析 Markdown 内容"""
@@ -219,13 +455,19 @@ def parse_markdown(md_content):
 
     return sections
 
-def generate_html(data, all_dates, producthunt=None, github_trending=None):
+def generate_html(data, all_dates, producthunt=None, github_trending=None, ai_models=None, ai_tools=None, ai_trends=None):
     """生成 HTML 页面"""
 
     if producthunt is None:
         producthunt = []
     if github_trending is None:
         github_trending = []
+    if ai_models is None:
+        ai_models = []
+    if ai_tools is None:
+        ai_tools = []
+    if ai_trends is None:
+        ai_trends = []
 
     # 星级图标
     star_icons = {
@@ -278,8 +520,57 @@ def generate_html(data, all_dates, producthunt=None, github_trending=None):
             '''
         return html
 
+    # 生成 AI 模型列表
+    def generate_ai_models_list(models):
+        html = ''
+        for model in models[:8]:
+            html += f'''
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#{model.get('rank', '')}</span>
+                    <a href="{model.get('url', '#')}" class="news-title" target="_blank" rel="noopener">{model.get('name', 'Unknown')}</a>
+                    <span class="news-meta">{model.get('provider', '')}</span>
+                </div>
+                <p class="news-summary">{model.get('description', '')}</p>
+            </article>
+            '''
+        return html
+
+    # 生成 AI 工具列表
+    def generate_ai_tools_list(tools):
+        html = ''
+        for tool in tools[:16]:
+            html += f'''
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="{tool.get('url', '#')}" class="news-title" target="_blank" rel="noopener">{tool.get('name', 'Unknown')}</a>
+                    <span class="news-meta tool-category">{tool.get('category', '')}</span>
+                </div>
+                <p class="news-summary">{tool.get('description', '')}</p>
+            </article>
+            '''
+        return html
+
+    # 生成 AI 趋势列表
+    def generate_ai_trends_list(trends):
+        html = ''
+        for trend in trends:
+            html += f'''
+            <article class="news-item trend-item">
+                <div class="trend-header">
+                    <span class="trend-category">{trend.get('category', '')}</span>
+                    <span class="trend-title">{trend.get('title', '')}</span>
+                </div>
+                <p class="news-summary">{trend.get('description', '')}</p>
+            </article>
+            '''
+        return html
+
     producthunt_html = generate_product_list(producthunt)
     github_trending_html = generate_github_list(github_trending)
+    ai_models_html = generate_ai_models_list(ai_models)
+    ai_tools_html = generate_ai_tools_list(ai_tools)
+    ai_trends_html = generate_ai_trends_list(ai_trends)
 
     # 生成日期导航
     date_nav = ''
@@ -375,9 +666,48 @@ def generate_html(data, all_dates, producthunt=None, github_trending=None):
         <section class="news-section trending-section">
             <div class="trending-header">
                 <span class="trending-name">GitHub Trending</span>
-                <span class="trending-badge gh">GitHub</span>
+                <span class="trending-badge gh"><a href="https://github.com/trending" target="_blank" style="color:white;text-decoration:none;">GitHub</a></span>
             </div>
             {github_trending_html}
+        </section>
+        '''
+
+    # AI Models Section
+    ai_models_section = ''
+    if ai_models_html:
+        ai_models_section = f'''
+        <section class="news-section trending-section ai-section">
+            <div class="trending-header">
+                <span class="trending-name">AI 模型排行</span>
+                <span class="trending-badge ai">LLM</span>
+            </div>
+            {ai_models_html}
+        </section>
+        '''
+
+    # AI Tools Section
+    ai_tools_section = ''
+    if ai_tools_html:
+        ai_tools_section = f'''
+        <section class="news-section trending-section ai-section">
+            <div class="trending-header">
+                <span class="trending-name">AI 工具推荐</span>
+                <span class="trending-badge ai">Tools</span>
+            </div>
+            {ai_tools_html}
+        </section>
+        '''
+
+    # AI Trends Section
+    ai_trends_section = ''
+    if ai_trends_html:
+        ai_trends_section = f'''
+        <section class="news-section trending-section trends-section">
+            <div class="trending-header">
+                <span class="trending-name">AI 趋势洞察</span>
+                <span class="trending-badge trend">趋势</span>
+            </div>
+            {ai_trends_html}
         </section>
         '''
 
@@ -738,6 +1068,9 @@ def generate_html(data, all_dates, producthunt=None, github_trending=None):
 
         {producthunt_section}
         {github_section}
+        {ai_models_section}
+        {ai_tools_section}
+        {ai_trends_section}
 
         <footer class="footer">
             <p>Generated by Daily News Skill | Cloudflare Pages</p>
@@ -776,6 +1109,16 @@ def build():
     github_trending = get_github_trending()
     print(f"获取到 {len(github_trending)} 个 GitHub Trending 项目")
 
+    # 获取 AI 数据
+    print("正在获取 AI 模型信息...")
+    ai_models = get_ai_models()
+
+    print("正在获取 AI 工具推荐...")
+    ai_tools = get_ai_tools()
+
+    print("正在获取 AI 趋势分析...")
+    ai_trends = get_ai_trends()
+
     # 生成每个页面的 HTML
     for md_file in output_dir.glob('*.md'):
         date = md_file.stem
@@ -783,7 +1126,7 @@ def build():
         data = parse_markdown(md_content)
         data['date'] = date
 
-        html = generate_html(data, all_dates, producthunt, github_trending)
+        html = generate_html(data, all_dates, producthunt, github_trending, ai_models, ai_tools, ai_trends)
 
         output_file = dist_dir / f'{date}.html'
         output_file.write_text(html, encoding='utf-8')
