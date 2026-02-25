@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily News - 2026-02-25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #fafafa;
+            --bg-secondary: #f5f5f5;
+            --bg-terminal: #1a1a1a;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --accent: #2563eb;
+            --accent-light: #3b82f6;
+            --border: #e5e5e5;
+            --border-light: #f0f0f0;
+            --star: #f59e0b;
+            --code-bg: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Terminal Header */
+        .terminal-header {
+            background: var(--bg-terminal);
+            color: #fff;
+            padding: 1rem 2rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .terminal-line {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .terminal-prompt {
+            color: #10b981;
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.2em;
+            background: #10b981;
+            animation: blink 1s infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            overflow-x: auto;
+        }
+
+        .date-nav {
+            display: flex;
+            gap: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+        }
+
+        .date-link {
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .date-link:hover {
+            background: var(--bg-primary);
+            color: var(--accent);
+        }
+
+        .date-link.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .page-subtitle {
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 3rem;
+        }
+
+        /* Summary Section */
+        .summary-section {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .summary-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .summary-topic {
+            font-weight: 600;
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        .summary-content {
+            color: var(--text-secondary);
+        }
+
+        /* News Sections */
+        .news-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .star-rating {
+            color: var(--star);
+            font-size: 0.875rem;
+        }
+
+        .news-item {
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .news-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+        }
+
+        .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .news-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            line-height: 1.4;
+        }
+
+        .news-title:hover {
+            color: var(--accent);
+        }
+
+        .news-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: var(--code-bg);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .news-summary {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+            }
+
+            .news-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav-container {
+                padding: 0.75rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="terminal-header">
+        <div class="terminal-line">
+            <span class="terminal-prompt">$</span>
+            <span>daily-news --date 2026-02-25</span>
+            <span class="terminal-cursor"></span>
+        </div>
+        <div class="terminal-line">
+            <span class="terminal-prompt">&gt;</span>
+            <span>Generating report... Done.</span>
+        </div>
+    </header>
+
+    <nav class="nav-container">
+        <div class="date-nav">
+            <a href="2026-02-25.html" class="date-link active">2026-02-25</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1 class="page-title">Daily News</h1>
+        <p class="page-subtitle">// 2026-02-25</p>
+
+        <section class="summary-section">
+            <div class="section-title">$ cat summary.md</div>
+            
+        <div class="summary-item">
+            <span class="summary-topic">AI 编程工具</span>
+            <span class="summary-content">GitHub Trending 热门项目揭示 AI 编程助手系统提示词成焦点，Vercel 推出技能发现工具</span>
+        </div>
+        
+        <div class="summary-item">
+            <span class="summary-topic">AI Agent 平台</span>
+            <span class="summary-content">Cloudflare 发布 AI Agents 平台，降低 Agent 部署门槛</span>
+        </div>
+        
+        <div class="summary-item">
+            <span class="summary-topic">前端技术</span>
+            <span class="summary-content">React 脱离 Meta 引关注，Web 设计指南技能发布</span>
+        </div>
+        
+        </section>
+
+        
+        <section class="news-section">
+            <div class="section-header">
+                <span class="section-name">五星推荐</span>
+                <span class="star-rating">★★★★★</span>
+            </div>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools" class="news-title" target="_blank" rel="noopener">system-prompts-and-models-of-ai-tools</a>
+                    <span class="news-meta">github-trending` · `2026-02-25</span>
+                </div>
+                <p class="news-summary">GitHub Trending 本周最热项目，收集了 Claude Code、Cursor、Devin、Windsurf 等主流 AI 编程工具的系统提示词，总计超 12 万星。包含完整提示词、内部工具和 AI 模型，适合研究 AI 编程助手的实现方式。</p>
+            </article>
+            
+        </section>
+        
+        
+        <section class="news-section">
+            <div class="section-header">
+                <span class="section-name">四星推荐</span>
+                <span class="star-rating">★★★★☆</span>
+            </div>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://skills.sh/vercel-labs/skills/find-skills" class="news-title" target="_blank" rel="noopener">find-skills (vercel-labs/skills)</a>
+                    <span class="news-meta">skills-sh` · `2026-02-25</span>
+                </div>
+                <p class="news-summary">Vercel Labs 出品的技能发现工具，帮助开发者搜索和查找 AI Agent 可用的技能。skills.sh 目录的核心组件。</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/cloudflare/agents" class="news-title" target="_blank" rel="noopener">cloudflare/agents</a>
+                    <span class="news-meta">github-trending` · `2026-02-25</span>
+                </div>
+                <p class="news-summary">Cloudflare 推出的 AI Agents 平台，支持在 Cloudflare 基础设施上构建和部署 AI 代理。提供完整的开发工具和部署流程，降低 AI Agent 的部署门槛。</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices" class="news-title" target="_blank" rel="noopener">vercel-react-best-practices</a>
+                    <span class="news-meta">skills-sh` · `2026-02-25</span>
+                </div>
+                <p class="news-summary">Vercel 官方出品的 React 最佳实践技能，为 AI Agent 提供 React 开发规范和最佳实践指南。</p>
+            </article>
+            
+        </section>
+        
+        
+        <section class="news-section">
+            <div class="section-header">
+                <span class="section-name">值得一看</span>
+                <span class="star-rating">★★★☆☆</span>
+            </div>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://skills.sh/vercel-labs/agent-skills/web-design-guidelines" class="news-title" target="_blank" rel="noopener">web-design-guidelines</a>
+                    <span class="news-meta">skills-sh` · `2026-02-25</span>
+                </div>
+                <p class="news-summary">Vercel 官方出品的 Web 设计指南技能，为 AI Agent 提供设计系统、CSS 最佳实践和响应式设计指南。</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/google-research/timesfm" class="news-title" target="_blank" rel="noopener">google-research/timesfm</a>
+                    <span class="news-meta">github-trending` · `2026-02-25</span>
+                </div>
+                <p class="news-summary">Google Research 发布的预训练时间序列基础模型，用于时间序列预测任务。支持多种粒度的时间数据，可应用于金融、零售、能源等领域的预测需求。</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/alibaba/zvec" class="news-title" target="_blank" rel="noopener">alibaba/zvec</a>
+                    <span class="news-meta">github-trending` · `2026-02-25</span>
+                </div>
+                <p class="news-summary">阿里巴巴开源的轻量级、高性能进程内向量数据库，支持高速向量检索。采用 C++ 实现，适用于需要快速向量搜索的 AI 应用场景。</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://sulat.com/p/react-just-left-meta-heres-what-that" class="news-title" target="_blank" rel="noopener">React just left meta. Here's what that means for developers</a>
+                    <span class="news-meta">ai-news` · `2026-02-25</span>
+                </div>
+                <p class="news-summary">React 框架从 Meta 独立后的影响分析。探讨这一变化对 React 开发者、生态系统和未来发展的意义。 ## 其他</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/p-e-w/heretic" class="news-title" target="_blank" rel="noopener">p-e-w/heretic</a>
+                    <span class="news-meta">github-trending` · `2026-02-25</span>
+                </div>
+                <p class="news-summary">一个自动移除语言模型审查/过滤的开源工具，可绕过 AI 模型的内容限制。技术层面展示了如何对抗 AI 安全机制，引发关于 AI 伦理的讨论。</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/seerr-team/seerr" class="news-title" target="_blank" rel="noopener">seerr-team/seerr</a>
+                    <span class="news-meta">github-trending` · `2026-02-25</span>
+                </div>
+                <p class="news-summary">开源的媒体请求和管理平台，支持 Jellyfin、Plex、Emby。允许用户发现和请求电影、剧集，集成媒体服务器管理功能。</p>
+            </article>
+            
+        </section>
+        
+
+        <footer class="footer">
+            <p>Generated by Daily News Skill | Cloudflare Pages</p>
+        </footer>
+    </main>
+</body>
+</html>
