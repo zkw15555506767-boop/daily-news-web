@@ -2,14 +2,126 @@
 """
 Daily News Website Builder
 将 Markdown 日报转换为终端风格的 HTML 网页
+支持获取 Product Hunt Top 30 和 GitHub Trending
 """
 
 import os
 import re
 import json
 import shutil
+import requests
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
+from bs4 import BeautifulSoup
+
+# 禁用 SSL 警告
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+def get_producthunt_top30():
+    """获取 Product Hunt Top 30 - 优先从缓存读取"""
+    try:
+        cache_file = Path(__file__).parent / 'producthunt_cache.json'
+        if cache_file.exists():
+            import json
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                products = json.load(f)
+            print(f"Product Hunt: 从缓存获取到 {len(products)} 个产品")
+            return products
+        else:
+            return get_producthunt_fallback()
+    except Exception as e:
+        print(f"Product Hunt 获取失败: {e}")
+        return []
+
+
+def get_producthunt_fallback():
+    """Product Hunt 备用数据源 - 使用 Product Hunt RSS 桥接服务"""
+    try:
+        # 使用 RSShub 桥接 Product Hunt RSS
+        url = "https://api.rss2json.com/v1/api.json?rss_url=https://www.producthunt.com/feed"
+        response = requests.get(url, timeout=15, verify=False)
+
+        if response.status_code == 200:
+            data = response.json()
+            products = []
+            for item in data.get('items', [])[:30]:
+                # 提取产品名称（从标题中提取）
+                title = item.get('title', '')
+                # Product Hunt 标题格式通常是 "产品名 - 描述"
+                parts = title.split(' - ')
+                name = parts[0] if parts else title
+                desc = parts[1] if len(parts) > 1 else item.get('description', '')
+
+                products.append({
+                    'name': name.strip(),
+                    'url': item.get('link', ''),
+                    'description': desc.strip()[:200]
+                })
+            print(f"Product Hunt (RSS): 获取到 {len(products)} 个产品")
+            return products
+        else:
+            print(f"Product Hunt RSS 返回: {response.status_code}")
+            return get_producthunt_mock()
+    except Exception as e:
+        print(f"Product Hunt RSS 失败: {e}")
+        return get_producthunt_mock()
+
+
+def get_producthunt_mock():
+    """Product Hunt 模拟数据 - 当所有 API 都失败时使用"""
+    return []  # 返回空列表而不是模拟数据
+
+def get_github_trending(lang='', period='daily'):
+    """获取 GitHub Trending - 使用 GitHub API"""
+    try:
+        # GitHub API: 搜索最流行的仓库
+        # period: daily=1天内, weekly=7天内, monthly=30天内
+        date_map = {'daily': '1', 'weekly': '7', 'monthly': '30'}
+        days = date_map.get(period, '1')
+
+        # 计算日期范围
+        from datetime import datetime, timedelta
+        date = (datetime.now() - timedelta(days=int(days))).strftime('%Y-%m-%d')
+
+        query = f"created:>{date}"
+        if lang:
+            query += f" language:{lang}"
+
+        url = "https://api.github.com/search/repositories"
+        params = {
+            'q': query,
+            'sort': 'stars',
+            'order': 'desc',
+            'per_page': '30'
+        }
+        headers = {
+            'User-Agent': 'DailyNews/1.0',
+            'Accept': 'application/vnd.github.v3+json',
+        }
+
+        response = requests.get(url, params=params, headers=headers, timeout=15, verify=False)
+
+        if response.status_code == 200:
+            data = response.json()
+            repos = []
+            for item in data.get('items', [])[:30]:
+                repos.append({
+                    'name': item.get('full_name', ''),
+                    'url': item.get('html_url', ''),
+                    'description': item.get('description', '')[:200] if item.get('description') else '',
+                    'language': item.get('language', ''),
+                    'stars': str(item.get('stargazers_count', 0))
+                })
+            print(f"GitHub Trending: 获取到 {len(repos)} 个项目")
+            return repos
+        else:
+            print(f"GitHub API 返回错误: {response.status_code}")
+            return []
+
+    except Exception as e:
+        print(f"GitHub Trending 获取失败: {e}")
+        return []
 
 def parse_markdown(md_content):
     """解析 Markdown 内容"""
@@ -107,8 +219,13 @@ def parse_markdown(md_content):
 
     return sections
 
-def generate_html(data, all_dates):
+def generate_html(data, all_dates, producthunt=None, github_trending=None):
     """生成 HTML 页面"""
+
+    if producthunt is None:
+        producthunt = []
+    if github_trending is None:
+        github_trending = []
 
     # 星级图标
     star_icons = {
@@ -116,6 +233,53 @@ def generate_html(data, all_dates):
         4: '★★★★☆',
         3: '★★★☆☆'
     }
+
+    # 生成 Product Hunt 列表
+    def generate_product_list(products):
+        html = ''
+        for i, product in enumerate(products, 1):
+            html += f'''
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#{i}</span>
+                    <a href="{product.get('url', '#')}" class="news-title" target="_blank" rel="noopener">{product.get('name', 'Untitled')}</a>
+                </div>
+                <p class="news-summary">{product.get('description', '')}</p>
+            </article>
+            '''
+        return html
+
+    # 生成 GitHub Trending 列表
+    def generate_github_list(repos):
+        html = ''
+        for repo in repos:
+            lang_color = {
+                'Python': '#3572A5',
+                'JavaScript': '#f1e05a',
+                'TypeScript': '#2b7489',
+                'Go': '#00ADD8',
+                'Rust': '#dea584',
+                'Java': '#b07219',
+                'C++': '#f34b7d',
+                'C': '#555555',
+            }.get(repo.get('language', ''), '#666666')
+
+            html += f'''
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="{repo.get('url', '#')}" class="news-title" target="_blank" rel="noopener">{repo.get('name', 'Untitled')}</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: {lang_color}"></span>
+                        {repo.get('language', '')} · ⭐ {repo.get('stars', '0')}
+                    </span>
+                </div>
+                <p class="news-summary">{repo.get('description', '')}</p>
+            </article>
+            '''
+        return html
+
+    producthunt_html = generate_product_list(producthunt)
+    github_trending_html = generate_github_list(github_trending)
 
     # 生成日期导航
     date_nav = ''
@@ -188,6 +352,32 @@ def generate_html(data, all_dates):
                 <span class="star-rating">{star_icons[3]}</span>
             </div>
             {worth_html}
+        </section>
+        '''
+
+    # Product Hunt Section
+    producthunt_section = ''
+    if producthunt_html:
+        producthunt_section = f'''
+        <section class="news-section trending-section">
+            <div class="trending-header">
+                <span class="trending-name">Product Hunt Top 30</span>
+                <span class="trending-badge ph">Product Hunt</span>
+            </div>
+            {producthunt_html}
+        </section>
+        '''
+
+    # GitHub Trending Section
+    github_section = ''
+    if github_trending_html:
+        github_section = f'''
+        <section class="news-section trending-section">
+            <div class="trending-header">
+                <span class="trending-name">GitHub Trending</span>
+                <span class="trending-badge gh">GitHub</span>
+            </div>
+            {github_trending_html}
         </section>
         '''
 
@@ -426,6 +616,62 @@ def generate_html(data, all_dates):
             line-height: 1.7;
         }}
 
+        /* Product Hunt & GitHub Trending Sections */
+        .trending-section {{
+            margin-top: 3rem;
+        }}
+
+        .trending-header {{
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border);
+        }}
+
+        .trending-name {{
+            font-size: 1.25rem;
+            font-weight: 600;
+        }}
+
+        .trending-badge {{
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            background: var(--code-bg);
+            color: var(--text-muted);
+        }}
+
+        .trending-badge.ph {{
+            background: #DA552F;
+            color: white;
+        }}
+
+        .trending-badge.gh {{
+            background: #24292e;
+            color: white;
+        }}
+
+        .rank-num {{
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-right: 0.5rem;
+            min-width: 2rem;
+            display: inline-block;
+        }}
+
+        .lang-dot {{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 0.25rem;
+            vertical-align: middle;
+        }}
+
         /* Footer */
         .footer {{
             margin-top: 4rem;
@@ -490,6 +736,9 @@ def generate_html(data, all_dates):
         {four_star_section}
         {worth_section}
 
+        {producthunt_section}
+        {github_section}
+
         <footer class="footer">
             <p>Generated by Daily News Skill | Cloudflare Pages</p>
         </footer>
@@ -518,6 +767,15 @@ def build():
 
     print(f"找到 {len(all_dates)} 个日报文件")
 
+    # 获取Trending数据
+    print("正在获取 Product Hunt Top 30...")
+    producthunt = get_producthunt_top30()
+    print(f"获取到 {len(producthunt)} 个 Product Hunt 产品")
+
+    print("正在获取 GitHub Trending...")
+    github_trending = get_github_trending()
+    print(f"获取到 {len(github_trending)} 个 GitHub Trending 项目")
+
     # 生成每个页面的 HTML
     for md_file in output_dir.glob('*.md'):
         date = md_file.stem
@@ -525,7 +783,7 @@ def build():
         data = parse_markdown(md_content)
         data['date'] = date
 
-        html = generate_html(data, all_dates)
+        html = generate_html(data, all_dates, producthunt, github_trending)
 
         output_file = dist_dir / f'{date}.html'
         output_file.write_text(html, encoding='utf-8')

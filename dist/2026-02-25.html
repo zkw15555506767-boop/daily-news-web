@@ -233,6 +233,62 @@
             line-height: 1.7;
         }
 
+        /* Product Hunt & GitHub Trending Sections */
+        .trending-section {
+            margin-top: 3rem;
+        }
+
+        .trending-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .trending-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .trending-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            background: var(--code-bg);
+            color: var(--text-muted);
+        }
+
+        .trending-badge.ph {
+            background: #DA552F;
+            color: white;
+        }
+
+        .trending-badge.gh {
+            background: #24292e;
+            color: white;
+        }
+
+        .rank-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-right: 0.5rem;
+            min-width: 2rem;
+            display: inline-block;
+        }
+
+        .lang-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 0.25rem;
+            vertical-align: middle;
+        }
+
         /* Footer */
         .footer {
             margin-top: 4rem;
@@ -411,6 +467,595 @@
                     <span class="news-meta">github-trending` · `2026-02-25</span>
                 </div>
                 <p class="news-summary">开源的媒体请求和管理平台，支持 Jellyfin、Plex、Emby。允许用户发现和请求电影、剧集，集成媒体服务器管理功能。</p>
+            </article>
+            
+        </section>
+        
+
+        
+        <section class="news-section trending-section">
+            <div class="trending-header">
+                <span class="trending-name">Product Hunt Top 30</span>
+                <span class="trending-badge ph">Product Hunt</span>
+            </div>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#1</span>
+                    <a href="https://www.producthunt.com/products/tadak" class="news-title" target="_blank" rel="noopener">Tadak</a>
+                </div>
+                <p class="news-summary">Your Personal White Noise Player</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#2</span>
+                    <a href="https://www.producthunt.com/products/fellow-app" class="news-title" target="_blank" rel="noopener">Ask Fellow</a>
+                </div>
+                <p class="news-summary">Automate post-meeting actions from documentation to emails</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#3</span>
+                    <a href="https://www.producthunt.com/products/floors-js" class="news-title" target="_blank" rel="noopener">floors.js</a>
+                </div>
+                <p class="news-summary">Turn your website into Habbo Hotel - one script tag</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#4</span>
+                    <a href="https://www.producthunt.com/products/ask-7" class="news-title" target="_blank" rel="noopener">Ask</a>
+                </div>
+                <p class="news-summary">Memory infrastructure for AI coding agents</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#5</span>
+                    <a href="https://www.producthunt.com/products/peonping" class="news-title" target="_blank" rel="noopener">PeonPing</a>
+                </div>
+                <p class="news-summary">Stop babysitting your terminal</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#6</span>
+                    <a href="https://www.producthunt.com/products/the-commuter" class="news-title" target="_blank" rel="noopener">The Commuter</a>
+                </div>
+                <p class="news-summary">News that reads like a tweet</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#7</span>
+                    <a href="https://www.producthunt.com/products/kiloclaw" class="news-title" target="_blank" rel="noopener">KiloClaw</a>
+                </div>
+                <p class="news-summary">Hosted OpenClaw. No Mac mini required.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#8</span>
+                    <a href="https://www.producthunt.com/products/vibepad" class="news-title" target="_blank" rel="noopener">VibePad</a>
+                </div>
+                <p class="news-summary">Control AI coding assistants with a gamepad from your couch</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#9</span>
+                    <a href="https://www.producthunt.com/products/general-legal" class="news-title" target="_blank" rel="noopener">General Legal</a>
+                </div>
+                <p class="news-summary">A lightening fast law firm in your Slack</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#10</span>
+                    <a href="https://www.producthunt.com/products/google" class="news-title" target="_blank" rel="noopener">Universal-3 Pro by AssemblyAI</a>
+                </div>
+                <p class="news-summary">Speech-to-text that finally understands context</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#11</span>
+                    <a href="https://www.producthunt.com/products/thinglo-save-anything-lose-nothing" class="news-title" target="_blank" rel="noopener">Thinglo</a>
+                </div>
+                <p class="news-summary">Save anything from any app — AI-organized, private, instant</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#12</span>
+                    <a href="https://www.producthunt.com/products/travel-animator" class="news-title" target="_blank" rel="noopener">Custom Models</a>
+                </div>
+                <p class="news-summary">Personalized 3D models for animated travel stories</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#13</span>
+                    <a href="https://www.producthunt.com/products/ghostreply-2" class="news-title" target="_blank" rel="noopener">GhostReply</a>
+                </div>
+                <p class="news-summary">AI that texts back for you on iMessage</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#14</span>
+                    <a href="https://www.producthunt.com/products/thinklet-ai-voice-notes-with-local-ai" class="news-title" target="_blank" rel="noopener">Thinklet AI</a>
+                </div>
+                <p class="news-summary">Voice notes you can chat with.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#15</span>
+                    <a href="https://www.producthunt.com/products/mercury-412" class="news-title" target="_blank" rel="noopener">Mercury 2</a>
+                </div>
+                <p class="news-summary">Fastest reasoning LLM built for instant production AI</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#16</span>
+                    <a href="https://www.producthunt.com/products/wisprflow" class="news-title" target="_blank" rel="noopener">Wispr Flow</a>
+                </div>
+                <p class="news-summary">Dictation That Works Everywhere. Stop typing. Start speaking. 4x faster.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#17</span>
+                    <a href="https://www.producthunt.com/products/google" class="news-title" target="_blank" rel="noopener">Opal 2.0 by Google Labs</a>
+                </div>
+                <p class="news-summary">Now with smart agent, memory, routing and interactive chat</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#18</span>
+                    <a href="https://www.producthunt.com/products/synlets" class="news-title" target="_blank" rel="noopener">Synlets</a>
+                </div>
+                <p class="news-summary">Assign tickets to AI and reduce your backlog</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#19</span>
+                    <a href="https://www.producthunt.com/products/sf-trip-planner" class="news-title" target="_blank" rel="noopener">SF Trip Planner</a>
+                </div>
+                <p class="news-summary">Curated spots, events, crime indicator, all in a single map</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#20</span>
+                    <a href="https://www.producthunt.com/products/yuma-social-ai" class="news-title" target="_blank" rel="noopener">Yuma Social AI</a>
+                </div>
+                <p class="news-summary">Put your ecommerce social media on auto-pilot</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#21</span>
+                    <a href="https://www.producthunt.com/products/pinly-smart-location-reminders" class="news-title" target="_blank" rel="noopener">Pinly</a>
+                </div>
+                <p class="news-summary">Reminders that trigger exactly where you need them</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#22</span>
+                    <a href="https://www.producthunt.com/products/webflow" class="news-title" target="_blank" rel="noopener">Webflow | AI site builder</a>
+                </div>
+                <p class="news-summary">Start fast. Build right.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#23</span>
+                    <a href="https://www.producthunt.com/products/notion" class="news-title" target="_blank" rel="noopener">Notion Custom Agents</a>
+                </div>
+                <p class="news-summary">Anything you can do in Notion, your Agent can do for you.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#24</span>
+                    <a href="https://www.producthunt.com/products/demome" class="news-title" target="_blank" rel="noopener">DemoMe</a>
+                </div>
+                <p class="news-summary">Turn screen recordings into polished demo videos instantly</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#25</span>
+                    <a href="https://www.producthunt.com/products/scenescroll" class="news-title" target="_blank" rel="noopener">Scenescroll</a>
+                </div>
+                <p class="news-summary">Realistic AI UGC video ads that you can test scale quickly</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#26</span>
+                    <a href="https://www.producthunt.com/products/ramain" class="news-title" target="_blank" rel="noopener">RamAIn</a>
+                </div>
+                <p class="news-summary">Read and write WhatsApp messages with Claude</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#27</span>
+                    <a href="https://www.producthunt.com/products/arzule" class="news-title" target="_blank" rel="noopener">Arzule</a>
+                </div>
+                <p class="news-summary">Turn partnerships into predictable revenue with AI</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#28</span>
+                    <a href="https://www.producthunt.com/products/blanc-note" class="news-title" target="_blank" rel="noopener">Blanc Note</a>
+                </div>
+                <p class="news-summary">A quiet home for your thoughts</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#29</span>
+                    <a href="https://www.producthunt.com/products/mito-health" class="news-title" target="_blank" rel="noopener">Mito Health</a>
+                </div>
+                <p class="news-summary">Design Your Own Blood Panel in 60 secs</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <span class="rank-num">#30</span>
+                    <a href="https://www.producthunt.com/products/orca-3" class="news-title" target="_blank" rel="noopener">Orca</a>
+                </div>
+                <p class="news-summary">Play, mod, and host Minecraft from your browser with AI</p>
+            </article>
+            
+        </section>
+        
+        
+        <section class="news-section trending-section">
+            <div class="trending-header">
+                <span class="trending-name">GitHub Trending</span>
+                <span class="trending-badge gh">GitHub</span>
+            </div>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/wh1te4ever/super-tart-vphone-writeup" class="news-title" target="_blank" rel="noopener">wh1te4ever/super-tart-vphone-writeup</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #666666"></span>
+                        Swift · ⭐ 69
+                    </span>
+                </div>
+                <p class="news-summary"></p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/Emily2040/seedance-2.0" class="news-title" target="_blank" rel="noopener">Emily2040/seedance-2.0</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #666666"></span>
+                        None · ⭐ 56
+                    </span>
+                </div>
+                <p class="news-summary">Comprehensive production pipeline for quad-modal AI filmmaking with Seedance 2.0</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/joeseesun/word-root-workshop" class="news-title" target="_blank" rel="noopener">joeseesun/word-root-workshop</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #f1e05a"></span>
+                        JavaScript · ⭐ 47
+                    </span>
+                </div>
+                <p class="news-summary">📚 词根词缀记忆工坊 - 像搭积木一样记单词，掌握300个词根，解锁30,000+英语单词</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/triogun/torzon-darknet-link" class="news-title" target="_blank" rel="noopener">triogun/torzon-darknet-link</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #666666"></span>
+                        None · ⭐ 42
+                    </span>
+                </div>
+                <p class="news-summary">TorZon Darknet Link</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/LongLiveY96/chatcube" class="news-title" target="_blank" rel="noopener">LongLiveY96/chatcube</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #2b7489"></span>
+                        TypeScript · ⭐ 29
+                    </span>
+                </div>
+                <p class="news-summary">A feature-rich AI chat client for HarmonyOS NEXT, supporting 13+ providers (OpenAI, Claude, DeepSeek, Gemini, etc.) with tool calling    and streaming.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/hao-cyber/skill-evolution" class="news-title" target="_blank" rel="noopener">hao-cyber/skill-evolution</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #3572A5"></span>
+                        Python · ⭐ 20
+                    </span>
+                </div>
+                <p class="news-summary">Self-evolving AI skill framework — skills that learn from execution, reflect on failures, and autonomously improve themselves</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/CodeBotanist/FreeProxyProxy" class="news-title" target="_blank" rel="noopener">CodeBotanist/FreeProxyProxy</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #f1e05a"></span>
+                        JavaScript · ⭐ 15
+                    </span>
+                </div>
+                <p class="news-summary">A Proxy for Free Proxies [DOGE]</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/DearBobby9/RefBib" class="news-title" target="_blank" rel="noopener">DearBobby9/RefBib</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #2b7489"></span>
+                        TypeScript · ⭐ 14
+                    </span>
+                </div>
+                <p class="news-summary">Extract real BibTeX from academic PDF references. No AI hallucinations — just real citations from CrossRef, Semantic Scholar, and DBLP.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/3DCF-Labs/safepilot" class="news-title" target="_blank" rel="noopener">3DCF-Labs/safepilot</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #dea584"></span>
+                        Rust · ⭐ 14
+                    </span>
+                </div>
+                <p class="news-summary">AI assistant that executes real work, safely.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/grbpdl/react-open-source-components" class="news-title" target="_blank" rel="noopener">grbpdl/react-open-source-components</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #666666"></span>
+                        None · ⭐ 10
+                    </span>
+                </div>
+                <p class="news-summary">Ready to use React Components</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/gh0stkey/HaEValidator" class="news-title" target="_blank" rel="noopener">gh0stkey/HaEValidator</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #3572A5"></span>
+                        Python · ⭐ 9
+                    </span>
+                </div>
+                <p class="news-summary">Validator For HaE</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/Lord-hair/pyclaw" class="news-title" target="_blank" rel="noopener">Lord-hair/pyclaw</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #3572A5"></span>
+                        Python · ⭐ 9
+                    </span>
+                </div>
+                <p class="news-summary">Your own personal AI assistant. Based on Langchain + Langgraph + Postgresql, a replica of the openclaw learning project was created.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/weiwang988/bao-like" class="news-title" target="_blank" rel="noopener">weiwang988/bao-like</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #666666"></span>
+                        Vue · ⭐ 9
+                    </span>
+                </div>
+                <p class="news-summary">aoLike 以 Electron + Vue3 + Vite 为基础，构建了一个模块化的桌面开发者工具管理平台。其通过主进程模块化与预加载桥接，将系统级能力安全地暴露给前端，实现了对工具、包管理、系统监控的统一管理。项目当前版本聚焦于核心功能骨架与模块化设计，具备良好的扩展性与可维护性，适合进一步完善工具配置、优化扫描性能与增强用户体验。  附录</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/maxyeh0817/Forge" class="news-title" target="_blank" rel="noopener">maxyeh0817/Forge</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #666666"></span>
+                        None · ⭐ 10
+                    </span>
+                </div>
+                <p class="news-summary"></p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/zhyc9de/git-brains" class="news-title" target="_blank" rel="noopener">zhyc9de/git-brains</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #2b7489"></span>
+                        TypeScript · ⭐ 8
+                    </span>
+                </div>
+                <p class="news-summary">JetBrains-style Git visualization for VS Code</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/xiaoaoke/openclaw-win" class="news-title" target="_blank" rel="noopener">xiaoaoke/openclaw-win</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #2b7489"></span>
+                        TypeScript · ⭐ 8
+                    </span>
+                </div>
+                <p class="news-summary">基于Electron打包的openclaw-GUI版本</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/ryan-yuuu/crypto-daytrading-arena" class="news-title" target="_blank" rel="noopener">ryan-yuuu/crypto-daytrading-arena</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #3572A5"></span>
+                        Python · ⭐ 7
+                    </span>
+                </div>
+                <p class="news-summary"></p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/anadim/AdderBoard" class="news-title" target="_blank" rel="noopener">anadim/AdderBoard</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #3572A5"></span>
+                        Python · ⭐ 7
+                    </span>
+                </div>
+                <p class="news-summary">Smallest transformer that can add two 10-digit numbers</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/oxc-project/oxc-webpack-loader" class="news-title" target="_blank" rel="noopener">oxc-project/oxc-webpack-loader</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #f1e05a"></span>
+                        JavaScript · ⭐ 7
+                    </span>
+                </div>
+                <p class="news-summary"></p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/drylikov/Chan" class="news-title" target="_blank" rel="noopener">drylikov/Chan</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #f1e05a"></span>
+                        JavaScript · ⭐ 7
+                    </span>
+                </div>
+                <p class="news-summary">A go style channel implementation for JavaScript that works nicely with co.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/022122/sso-tier-checker" class="news-title" target="_blank" rel="noopener">022122/sso-tier-checker</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #f1e05a"></span>
+                        JavaScript · ⭐ 6
+                    </span>
+                </div>
+                <p class="news-summary">Batch SSO token tier detection tool — classify tokens as Super or Basic via rate-limits API. Built with Deno.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/jjongguet/oh-my-gemini" class="news-title" target="_blank" rel="noopener">jjongguet/oh-my-gemini</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #2b7489"></span>
+                        TypeScript · ⭐ 6
+                    </span>
+                </div>
+                <p class="news-summary"></p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/breeze303/loc-build" class="news-title" target="_blank" rel="noopener">breeze303/loc-build</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #666666"></span>
+                        Shell · ⭐ 6
+                    </span>
+                </div>
+                <p class="news-summary">openwrt小白化本地编译</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/Zaious/ChronicleCore-Architecture" class="news-title" target="_blank" rel="noopener">Zaious/ChronicleCore-Architecture</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #666666"></span>
+                        None · ⭐ 6
+                    </span>
+                </div>
+                <p class="news-summary">The conceptual architecture and governance whitepaper for ChronicleCore, an enterprise-grade Multi-Agent orchestration framework.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/zackerydev/theclawmachine" class="news-title" target="_blank" rel="noopener">zackerydev/theclawmachine</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #00ADD8"></span>
+                        Go · ⭐ 6
+                    </span>
+                </div>
+                <p class="news-summary">Run OpenClaw (and friends!) on Kubernetes, with container and network isolation, automated backups and more.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/Ichigo3766/Open-UI" class="news-title" target="_blank" rel="noopener">Ichigo3766/Open-UI</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #666666"></span>
+                        None · ⭐ 6
+                    </span>
+                </div>
+                <p class="news-summary">A beautiful, native iOS client for Open WebUI — the self-hosted AI chat platform</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/deijing/IKunImage" class="news-title" target="_blank" rel="noopener">deijing/IKunImage</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #3572A5"></span>
+                        Python · ⭐ 6
+                    </span>
+                </div>
+                <p class="news-summary">Claude Code Skill - AI image generation via ikun API (Gemini 3 Pro Image Preview). Text-to-image, image editing, batch generation, 10 aspect ratios, up to 4K resolution.</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/itsmeacs01/graph-based-recommender-system" class="news-title" target="_blank" rel="noopener">itsmeacs01/graph-based-recommender-system</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #3572A5"></span>
+                        Python · ⭐ 5
+                    </span>
+                </div>
+                <p class="news-summary">Graph-Based Recommender System: Predicting User-Product Interactions with Relational SageConv</p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/DeepUG-AI/BIP-CENet" class="news-title" target="_blank" rel="noopener">DeepUG-AI/BIP-CENet</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #3572A5"></span>
+                        Python · ⭐ 5
+                    </span>
+                </div>
+                <p class="news-summary"></p>
+            </article>
+            
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="https://github.com/YoungYannick/komari-theme-purcarte-plus" class="news-title" target="_blank" rel="noopener">YoungYannick/komari-theme-purcarte-plus</a>
+                    <span class="news-meta">
+                        <span class="lang-dot" style="background: #2b7489"></span>
+                        TypeScript · ⭐ 5
+                    </span>
+                </div>
+                <p class="news-summary">一款为 Komari 设计的磨砂玻璃风格个性化增强版主题</p>
             </article>
             
         </section>
