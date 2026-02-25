@@ -1,0 +1,130 @@
+[
+  {
+    "name": "D4Vinci/Scrapling",
+    "url": "https://github.com/D4Vinci/Scrapling",
+    "description": "\u81ea\u9002\u5e94\u7f51\u9875\u722c\u866b\u6846\u67b6\uff0c\u4ece\u5355\u8bf7\u6c42\u5230\u5168\u89c4\u6a21\u722c\u53d6\u90fd\u80fd\u5904\u7406",
+    "language": "Python",
+    "stars": "13,616",
+    "today_stars": "1,970"
+  },
+  {
+    "name": "huggingface/skills",
+    "url": "https://github.com/huggingface/skills",
+    "description": "Hugging Face \u7684\u6280\u80fd\u53d1\u73b0\u5de5\u5177\uff0c\u5e2e\u52a9\u5f00\u53d1\u8005\u641c\u7d22 AI Agent \u53ef\u7528\u6280\u80fd",
+    "language": "Python",
+    "stars": "6,076",
+    "today_stars": "1,538"
+  },
+  {
+    "name": "abhigyanpatwari/GitNexus",
+    "url": "https://github.com/abhigyanpatwari/GitNexus",
+    "description": "\u96f6\u670d\u52a1\u7aef\u4ee3\u7801\u667a\u80fd\u5f15\u64ce\uff0c\u6d4f\u89c8\u5668\u7aef\u77e5\u8bc6\u56fe\u8c31\u521b\u5efa\u8005",
+    "language": "TypeScript",
+    "stars": "3,240",
+    "today_stars": "626"
+  },
+  {
+    "name": "obra/superpowers",
+    "url": "https://github.com/obra/superpowers",
+    "description": "\u4ee3\u7406\u6280\u80fd\u6846\u67b6\u548c\u8f6f\u4ef6\u5f00\u53d1\u65b9\u6cd5\u8bba\uff0c\u8ba9 AI \u5e2e\u4f60\u505a\u4e8b",
+    "language": "Shell",
+    "stars": "61,162",
+    "today_stars": "1,247"
+  },
+  {
+    "name": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+    "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+    "description": "Agent \u4e0a\u4e0b\u6587\u5de5\u7a0b\u3001\u591a\u4ee3\u7406\u67b6\u6784\u548c\u751f\u4ea7\u7ea7\u4ee3\u7406\u7cfb\u7edf\u7684\u7efc\u5408\u6280\u80fd\u96c6",
+    "language": "Python",
+    "stars": "10,394",
+    "today_stars": "1,043"
+  },
+  {
+    "name": "datawhalechina/hello-agents",
+    "url": "https://github.com/datawhalechina/hello-agents",
+    "description": "\u300a\u4ece\u96f6\u5f00\u59cb\u6784\u5efa\u667a\u80fd\u4f53\u300b\u2014\u2014\u4ece\u96f6\u5f00\u59cb\u7684\u667a\u80fd\u4f53\u539f\u7406\u4e0e\u5b9e\u8df5\u6559\u7a0b",
+    "language": "Python",
+    "stars": "21,785",
+    "today_stars": "187"
+  },
+  {
+    "name": "bytedance/deer-flow",
+    "url": "https://github.com/bytedance/deer-flow",
+    "description": "\u5f00\u6e90 SuperAgent \u6846\u67b6\uff0c\u7814\u7a76\u3001\u7f16\u7801\u3001\u521b\u4f5c\uff0c\u652f\u6301\u6c99\u76d2\u3001\u8bb0\u5fc6\u3001\u5de5\u5177\u3001\u6280\u80fd",
+    "language": "TypeScript",
+    "stars": "20,261",
+    "today_stars": "55"
+  },
+  {
+    "name": "VectifyAI/PageIndex",
+    "url": "https://github.com/VectifyAI/PageIndex",
+    "description": "\u6587\u6863\u7d22\u5f15\u5de5\u5177\uff0c\u9762\u5411\u65e0\u5411\u91cf\u3001\u57fa\u4e8e\u63a8\u7406\u7684 RAG",
+    "language": "Python",
+    "stars": "17,433",
+    "today_stars": "378"
+  },
+  {
+    "name": "NevaMind-AI/memU",
+    "url": "https://github.com/NevaMind-AI/memU",
+    "description": "7x24 \u5c0f\u65f6\u4e3b\u52a8\u4ee3\u7406\u7684\u8bb0\u5fc6\u7cfb\u7edf\uff0c\u5982 openclaw\u3001moltbot",
+    "language": "Python",
+    "stars": "10,590",
+    "today_stars": "508"
+  },
+  {
+    "name": "ruvnet/ruvector",
+    "url": "https://github.com/ruvnet/ruvector",
+    "description": "\u9ad8\u6027\u80fd\u3001\u5b9e\u65f6\u3001\u81ea\u5b66\u4e60\u7684\u5411\u91cf\u56fe\u795e\u7ecf\u7f51\u7edc\u548c\u6570\u636e\u5e93\uff0cRust \u5b9e\u73b0",
+    "language": "Rust",
+    "stars": "964",
+    "today_stars": "437"
+  },
+  {
+    "name": "NVIDIA/Megatron-LM",
+    "url": "https://github.com/NVIDIA/Megatron-LM",
+    "description": "\u5927\u89c4\u6a21\u8bad\u7ec3 Transformer \u6a21\u578b\u7684\u5f00\u6e90\u7814\u7a76",
+    "language": "Python",
+    "stars": "15,279",
+    "today_stars": "16"
+  },
+  {
+    "name": "shareAI-lab/learn-claude-code",
+    "url": "https://github.com/shareAI-lab/learn-claude-code",
+    "description": "Bash is all you need - \u4ece\u96f6\u6784\u5efa\u7c7b Claude Code \u4ee3\u7406",
+    "language": "TypeScript",
+    "stars": "17,803",
+    "today_stars": "174"
+  },
+  {
+    "name": "x1xhlol/system-prompts-and-models-of-ai-tools",
+    "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+    "description": "\u6536\u96c6\u4e86 Claude Code\u3001Cursor\u3001Devin\u3001Windsurf \u7b49\u4e3b\u6d41 AI \u7f16\u7a0b\u5de5\u5177\u7684\u7cfb\u7edf\u63d0\u793a\u8bcd",
+    "language": "",
+    "stars": "123,642",
+    "today_stars": "1,242"
+  },
+  {
+    "name": "katanemo/plano",
+    "url": "https://github.com/katanemo/plano",
+    "description": "\u4ee3\u7406\u5e94\u7528\u7684\u4ea4\u4ed8\u57fa\u7840\u8bbe\u65bd\uff0cAI \u539f\u751f\u4ee3\u7406\u548c\u6570\u636e\u5e73\u9762",
+    "language": "Rust",
+    "stars": "5,379",
+    "today_stars": "199"
+  },
+  {
+    "name": "liyupi/ai-guide",
+    "url": "https://github.com/liyupi/ai-guide",
+    "description": "\u7a0b\u5e8f\u5458\u9c7c\u76ae\u7684 AI \u8d44\u6e90\u5927\u5168 + Vibe Coding \u96f6\u57fa\u7840\u6559\u7a0b",
+    "language": "JavaScript",
+    "stars": "7,550",
+    "today_stars": "244"
+  },
+  {
+    "name": "siteboon/claudecodeui",
+    "url": "https://github.com/siteboon/claudecodeui",
+    "description": "\u5728\u79fb\u52a8\u7aef\u548c\u7f51\u9875\u4e0a\u4f7f\u7528 Claude Code\u3001Cursor CLI\uff0c\u901a\u8fc7 CloudCLI \u4e91\u7aef\u7ba1\u7406",
+    "language": "JavaScript",
+    "stars": "6,871",
+    "today_stars": "295"
+  }
+]

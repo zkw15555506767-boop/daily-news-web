@@ -1,0 +1,121 @@
+[
+  {
+    "rank": 1,
+    "name": "MiniMax M2.5",
+    "provider": "MiniMax",
+    "description": "\u672c\u5468\u4f7f\u7528\u91cf\u6700\u9ad8\uff0c\u8fbe 2.09T tokens\uff0c\u589e\u901f 15%",
+    "url": "https://openrouter.ai/minimax/minimax-m2.5"
+  },
+  {
+    "rank": 2,
+    "name": "Gemini 3 Flash Preview",
+    "provider": "Google",
+    "description": "Google \u6700\u65b0 Flash \u6a21\u578b\uff0c912B tokens\uff0c\u54cd\u5e94\u5feb\u901f",
+    "url": "https://openrouter.ai/google/gemini-3-flash-preview"
+  },
+  {
+    "rank": 3,
+    "name": "Kimi K2.5",
+    "provider": "Moonshot AI",
+    "description": "\u6708\u4e4b\u6697\u9762 Kimi \u65b0\u7248\uff0c878B tokens\uff0c\u589e\u901f 27%",
+    "url": "https://openrouter.ai/moonshotai/kimi-k2.5"
+  },
+  {
+    "rank": 4,
+    "name": "GLM 5",
+    "provider": "Zhipu AI",
+    "description": "\u667a\u8c31\u6e05\u8a00 GLM-5\uff0c789B tokens\uff0c\u589e\u901f 10%",
+    "url": "https://openrouter.ai/z-ai/glm-5"
+  },
+  {
+    "rank": 5,
+    "name": "DeepSeek V3.2",
+    "provider": "DeepSeek",
+    "description": "DeepSeek \u6700\u65b0\u7248\u672c\uff0c774B tokens\uff0c\u6027\u4ef7\u6bd4\u6781\u9ad8",
+    "url": "https://openrouter.ai/deepseek/deepseek-v3.2"
+  },
+  {
+    "rank": 6,
+    "name": "Grok 4.1 Fast",
+    "provider": "xAI",
+    "description": "\u9a6c\u65af\u514b xAI \u51fa\u54c1\uff0c714B tokens\uff0c\u589e\u901f 29% \u6700\u5feb",
+    "url": "https://openrouter.ai/x-ai/grok-4.1-fast"
+  },
+  {
+    "rank": 7,
+    "name": "Claude Opus 4.6",
+    "provider": "Anthropic",
+    "description": "Anthropic \u6700\u5f3a\u6a21\u578b\uff0c629B tokens\uff0c\u9002\u5408\u590d\u6742\u63a8\u7406",
+    "url": "https://openrouter.ai/anthropic/claude-opus-4.6"
+  },
+  {
+    "rank": 8,
+    "name": "Claude Sonnet 4.5",
+    "provider": "Anthropic",
+    "description": "Claude \u4e2d\u7aef\u6a21\u578b\uff0c509B tokens\uff0c\u589e\u901f 18%",
+    "url": "https://openrouter.ai/anthropic/claude-sonnet-4.5"
+  },
+  {
+    "rank": 9,
+    "name": "Trinity Large Preview",
+    "provider": "Arcee AI",
+    "description": "\u514d\u8d39\u5f00\u6e90\u5927\u6a21\u578b\uff0c485B tokens",
+    "url": "https://openrouter.ai/arcee-ai/trinity-large-preview:free"
+  },
+  {
+    "rank": 10,
+    "name": "Claude Sonnet 4.6",
+    "provider": "Anthropic",
+    "description": "Claude \u6700\u65b0\u4e2d\u7aef\u6a21\u578b\uff0c448B tokens\uff0c\u589e\u901f 7597%",
+    "url": "https://openrouter.ai/anthropic/claude-sonnet-4.6"
+  },
+  {
+    "rank": 1,
+    "name": "OpenClaw",
+    "category": "\u7f16\u7a0b\u5de5\u5177",
+    "description": "\u771f\u6b63\u80fd\u505a\u4e8b\u7684 AI\uff0c316B tokens \u4f7f\u7528\u91cf",
+    "url": "https://openclaw.ai/"
+  },
+  {
+    "rank": 2,
+    "name": "Kilo Code",
+    "category": "\u7f16\u7a0b\u5de5\u5177",
+    "description": "VS Code \u7684 AI \u7f16\u7801\u4ee3\u7406\uff0c180B tokens",
+    "url": "https://kilocode.ai/"
+  },
+  {
+    "rank": 3,
+    "name": "BLACKBOXAI",
+    "category": "\u7f16\u7a0b\u5de5\u5177",
+    "description": "\u9762\u5411\u5f00\u53d1\u8005\u7684 AI \u4ee3\u7406\uff0c82.9B tokens",
+    "url": "https://blackbox.ai/"
+  },
+  {
+    "rank": 4,
+    "name": "Cline",
+    "category": "\u7f16\u7a0b\u5de5\u5177",
+    "description": "IDE \u91cc\u7684\u81ea\u4e3b\u7f16\u7801\u4ee3\u7406\uff0c55.1B tokens",
+    "url": "https://cline.bot/"
+  },
+  {
+    "rank": 5,
+    "name": "Claude Code",
+    "category": "\u7f16\u7a0b\u5de5\u5177",
+    "description": "\u9762\u5411\u95ee\u9898\u89e3\u51b3\u8005\u7684 AI\uff0c25.9B tokens",
+    "url": "https://claude.ai/code"
+  },
+  {
+    "rank": 6,
+    "name": "Roo Code",
+    "category": "\u7f16\u7a0b\u5de5\u5177",
+    "description": "\u7f16\u8f91\u5668\u91cc\u7684 AI \u4ee3\u7406\u56e2\u961f\uff0c18.7B tokens",
+    "url": "https://roocode.com/"
+  },
+  {
+    "rank": 7,
+    "name": "Agent Zero",
+    "category": "\u7f16\u7a0b\u5de5\u5177",
+    "description": "\u8f7b\u677e\u6784\u5efa\u81ea\u4e3b AI \u4ee3\u7406",
+    "url": "https://agent-zero.ai/"
+  }
+]

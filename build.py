@@ -73,61 +73,19 @@ def get_producthunt_mock():
     return []  # 返回空列表而不是模拟数据
 
 def get_github_trending(lang='', period='weekly'):
-    """获取 GitHub Trending - 使用正确的 trending 链接"""
+    """获取 GitHub Trending - 从缓存读取"""
     try:
-        # 使用 GitHub API 获取数据，但提供正确的 trending 页面链接
-        date_map = {'daily': '1', 'weekly': '7', 'monthly': '30'}
-        days = date_map.get(period, '7')
-
-        from datetime import datetime, timedelta
-        date = (datetime.now() - timedelta(days=int(days))).strftime('%Y-%m-%d')
-
-        query = f"created:>{date}"
-        if lang:
-            query += f" language:{lang}"
-
-        url = "https://api.github.com/search/repositories"
-        params = {
-            'q': query,
-            'sort': 'stars',
-            'order': 'desc',
-            'per_page': '30'
-        }
-        headers = {
-            'User-Agent': 'DailyNews/1.0',
-            'Accept': 'application/vnd.github.v3+json',
-        }
-
-        response = requests.get(url, params=params, headers=headers, timeout=15, verify=False)
-
-        if response.status_code == 200:
-            data = response.json()
-            repos = []
-            trending_url = "https://github.com/trending"
-            if lang:
-                trending_url = f"https://github.com/trending/{lang}"
-            trending_url += f"?since={period}"
-
-            for item in data.get('items', [])[:30]:
-                # 生成中文描述
-                desc_en = item.get('description', '') or ''
-                desc_cn = generate_chinese_description(item.get('full_name', ''), desc_en, item.get('language', ''))
-
-                repos.append({
-                    'name': item.get('full_name', ''),
-                    'url': item.get('html_url', ''),
-                    'trending_url': trending_url,  # 添加 trending 页面链接
-                    'description': desc_cn,  # 使用中文描述
-                    'description_en': desc_en,
-                    'language': item.get('language', ''),
-                    'stars': str(item.get('stargazers_count', 0))
-                })
-            print(f"GitHub Trending: 获取到 {len(repos)} 个项目")
+        # 优先从缓存读取
+        cache_file = Path(__file__).parent / 'github_trending_cache.json'
+        if cache_file.exists():
+            import json
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                repos = json.load(f)
+            print(f"GitHub Trending: 从缓存获取到 {len(repos)} 个项目")
             return repos
         else:
-            print(f"GitHub API 返回错误: {response.status_code}")
+            print("GitHub Trending: 缓存不存在，使用备用方案")
             return []
-
     except Exception as e:
         print(f"GitHub Trending 获取失败: {e}")
         return []
@@ -145,13 +103,25 @@ def generate_chinese_description(name, desc_en, language):
 
 
 def get_ai_models():
-    """获取 AI 模型排行榜信息"""
+    """获取 AI 模型排行榜信息 - 从 OpenRouter 缓存读取"""
+    try:
+        cache_file = Path(__file__).parent / 'openrouter_cache.json'
+        if cache_file.exists():
+            import json
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                models = json.load(f)
+            print(f"AI Models: 从缓存获取到 {len(models)} 个模型")
+            return models
+    except Exception as e:
+        print(f"AI Models 获取失败: {e}")
+
+    # 备用数据
     models = [
         {
-            'name': 'GPT-4o',
-            'provider': 'OpenAI',
-            'description': 'OpenAI 最新的多模态大模型，支持文本、图像、音频输入，响应速度快，性价比高',
-            'url': 'https://openai.com',
+            'name': 'MiniMax M2.5',
+            'provider': 'MiniMax',
+            'description': '本周使用量最高，达 2.09T tokens，增速 15%',
+            'url': 'https://openrouter.ai/minimax/minimax-m2.5',
             'rank': 1
         },
         {
@@ -359,6 +329,23 @@ def get_ai_trends():
     print(f"AI Trends: 获取到 {len(trends)} 个趋势")
     return trends
 
+
+def get_ai_news():
+    """获取最新 AI 资讯 - 从缓存读取"""
+    try:
+        cache_file = Path(__file__).parent / 'ai_news_cache.json'
+        if cache_file.exists():
+            import json
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            quantum = data.get('quantum', [])
+            print(f"AI News: 从缓存获取到 {len(quantum)} 条最新资讯")
+            return quantum
+    except Exception as e:
+        print(f"AI News 获取失败: {e}")
+    return []
+
+
 def parse_markdown(md_content):
     """解析 Markdown 内容"""
     sections = {
@@ -455,7 +442,7 @@ def parse_markdown(md_content):
 
     return sections
 
-def generate_html(data, all_dates, producthunt=None, github_trending=None, ai_models=None, ai_tools=None, ai_trends=None):
+def generate_html(data, all_dates, producthunt=None, github_trending=None, ai_models=None, ai_tools=None, ai_trends=None, ai_news=None):
     """生成 HTML 页面"""
 
     if producthunt is None:
@@ -468,6 +455,8 @@ def generate_html(data, all_dates, producthunt=None, github_trending=None, ai_mo
         ai_tools = []
     if ai_trends is None:
         ai_trends = []
+    if ai_news is None:
+        ai_news = []
 
     # 星级图标
     star_icons = {
@@ -571,6 +560,22 @@ def generate_html(data, all_dates, producthunt=None, github_trending=None, ai_mo
     ai_models_html = generate_ai_models_list(ai_models)
     ai_tools_html = generate_ai_tools_list(ai_tools)
     ai_trends_html = generate_ai_trends_list(ai_trends)
+
+    # 生成 AI 新闻列表
+    def generate_ai_news_list(news):
+        html = ''
+        for item in news[:15]:
+            html += f'''
+            <article class="news-item">
+                <div class="news-header">
+                    <a href="{item.get('url', '#')}" class="news-title" target="_blank" rel="noopener">{item.get('title', '')}</a>
+                    <span class="news-meta">{item.get('source', '')}</span>
+                </div>
+            </article>
+            '''
+        return html
+
+    ai_news_html = generate_ai_news_list(ai_news)
 
     # 生成日期导航
     date_nav = ''
@@ -708,6 +713,19 @@ def generate_html(data, all_dates, producthunt=None, github_trending=None, ai_mo
                 <span class="trending-badge trend">趋势</span>
             </div>
             {ai_trends_html}
+        </section>
+        '''
+
+    # AI News Section
+    ai_news_section = ''
+    if ai_news_html:
+        ai_news_section = f'''
+        <section class="news-section trending-section news-section">
+            <div class="trending-header">
+                <span class="trending-name">最新 AI 资讯</span>
+                <span class="trending-badge news">量子位</span>
+            </div>
+            {ai_news_html}
         </section>
         '''
 
@@ -1071,6 +1089,7 @@ def generate_html(data, all_dates, producthunt=None, github_trending=None, ai_mo
         {ai_models_section}
         {ai_tools_section}
         {ai_trends_section}
+        {ai_news_section}
 
         <footer class="footer">
             <p>Generated by Daily News Skill | Cloudflare Pages</p>
@@ -1119,6 +1138,9 @@ def build():
     print("正在获取 AI 趋势分析...")
     ai_trends = get_ai_trends()
 
+    print("正在获取最新 AI 资讯...")
+    ai_news = get_ai_news()
+
     # 生成每个页面的 HTML
     for md_file in output_dir.glob('*.md'):
         date = md_file.stem
@@ -1126,7 +1148,7 @@ def build():
         data = parse_markdown(md_content)
         data['date'] = date
 
-        html = generate_html(data, all_dates, producthunt, github_trending, ai_models, ai_tools, ai_trends)
+        html = generate_html(data, all_dates, producthunt, github_trending, ai_models, ai_tools, ai_trends, ai_news)
 
         output_file = dist_dir / f'{date}.html'
         output_file.write_text(html, encoding='utf-8')
